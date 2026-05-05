@@ -40,18 +40,28 @@
 # print(steal(rat, units, arr))
 
 
-def bss(arr):
-    l = len(arr)
+# def bss(arr):
+#     l = len(arr)
 
-    for i in range(l):
-        for j in range(i + 1, l):
-            if arr[i] > arr[j]:
-                arr[i], arr[j] = arr[j], arr[i]
+#     for i in range(l):
+#         for j in range(i + 1, l):
+#             if arr[i] > arr[j]:
+#                 arr[i], arr[j] = arr[j], arr[i]
 
-    return arr
+#     return arr
 
-print(bss([78, 34, 56, 12, 38]))
+# print(bss([78, 34, 56, 12, 38]))
 
+def fdp(arr):
+    even_sum = 0
+    odd_sum = 0
+    for i in range(len(arr)):
+        if i % 2 == 0:
+            even_sum += arr[i]
+        else:
+            odd_sum += arr[i]
+    return abs(odd_sum - even_sum)
+print(fdp([4, 6, 1, 3, 8]))
 
         
 
