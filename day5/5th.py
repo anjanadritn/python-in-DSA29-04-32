@@ -1,23 +1,22 @@
-class LinkedList:
+from collections import deque
 
-    def __init__(self):
-        self.head = None   
+def interleave_queue(q):
+    n = len(q)
 
-    class Node:
-        def __init__(self, data):
-            self.data = data
-            self.next = None
+    # Step 1: Split first half
+    fh = deque()
+    for _ in range(n // 2):
+        fh.append(q.popleft())
 
-            def remove_nth(self,n):
-                l=0
-                c=self.head
-                while c:
-                    l+=1
-                    c=c.next
-                    if l==n:
-                        return self.head.data
-                    c1=self.head   #90
-                    for _ in range(l-n-1): #loop runs 9-4-1=4 times
-                        c1=c1.next         #67,44,33,21
-                        c1.next=c1.next.next
-                        return self.head
+    # Step 2: Interleave
+    while fh:
+        q.append(fh.popleft())   # from first half
+        q.append(q.popleft())    # from second half
+
+    return q
+
+
+# Example usage
+q = deque([8, 9, 1, 2, 3, 5,9])
+result = interleave_queue(q)
+print(result)
