@@ -22,6 +22,7 @@
 # rat = 4
 # units = 4
 
+
 # def steal(rat, units, arr):
 #     if len(arr) == 0:
 #         return -1
